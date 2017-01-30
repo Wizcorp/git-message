@@ -8,6 +8,11 @@ exports.setGitMessage = function (filepath, callback) {
   async.series([
     (callback) => fs.access(filepath, callback),
     (callback) => fs.access(gitDir, callback),
-    (callback) => cp.exec(`git config --local commit.template ${filepath}`, callback)
+    (callback) => cp.execFile('git', [
+      'config',
+      '--local',
+      'commit.template',
+      filepath
+    ], callback)
   ], callback)
 }

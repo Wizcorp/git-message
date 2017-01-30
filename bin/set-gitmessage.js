@@ -6,7 +6,6 @@ const cwd  = process.cwd()
 const getMessageFilePath = function () {
   try {
     const filepath = path.join(cwd, '../../.gitmessage')
-    console.log(filepath)
     fs.accessSync(filepath)
     return filepath
   } catch (error) {
