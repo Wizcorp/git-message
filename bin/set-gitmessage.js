@@ -1,14 +1,17 @@
 const gm = require('../')
 const fs = require('fs')
+const path = require('path')
 const cwd  = process.cwd()
 
 const getMessageFilePath = function () {
   try {
-    fs.accessSync('./.gitmessage')
-    return `${cwd}/.gitmessage`
+    const filepath = path.join(cwd, '../../.gitmessage')
+    console.log(filepath)
+    fs.accessSync(filepath)
+    return filepath
   } catch (error) {
     console.warn('No .gitmessage file found in your project, using default')
-    return `${cwd}/node_modules/git-message/.gitmessage`
+    return `${cwd}/.gitmessage`
   }
 }
 
@@ -20,7 +23,7 @@ const filepath = getArgument()
 gm.setGitMessage(filepath, function (error) {
   if (error) {
     console.error('Failed to set git message!')
-		console.error(error.stack)
+    console.error(error.stack)
     process.exit(1)
   }
 
