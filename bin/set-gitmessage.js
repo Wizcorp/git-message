@@ -21,6 +21,11 @@ const getArgument = function () {
 const filepath = getArgument()
 gm.setGitMessage(filepath, function (error) {
   if (error) {
+    if (error.code === 'ENOENT') {
+      console.warn('Target project does not exist or is not a git repository, skipping')
+      process.exit()
+    }
+
     console.error('Failed to set git message!')
     console.error(error.stack)
     process.exit(1)
