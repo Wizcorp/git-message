@@ -4,7 +4,13 @@ const path = require('path')
 const async = require('async')
 
 exports.setGitMessage = function (filepath, callback) {
-  const gitDir = path.join(process.cwd(), '../../.git')
+  const projectRoot = path.resolve(process.cwd(), '../..')
+  const gitDir = path.join(projectRoot, '.git')
+
+  if (!path.isAbsolute(filepath)) {
+    filepath = path.resolve(projectRoot, filepath)
+  }
+
   async.series([
     (callback) => fs.access(filepath, callback),
     (callback) => fs.access(gitDir, callback),
