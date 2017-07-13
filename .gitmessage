@@ -18,17 +18,19 @@
 
 
 #
-# Finally, please add all references to either GitHub issues this
-# commit either resolves or is related to. To do so, uncomment the
-# appropriate line(s), and add a comma-separated list of the
-# GitHub issue/pull request ID.
+# Finally, please add a reference to other issues or pull
+# request on GitHub here below.
 #
 # Example
 # -------
 #
-#   Resolves: #1, #2
-#   Close: #3
+#   Resolves #1
+#   Resolves #2
+#   Closes #3
 #
-# Resolves: #
-# Closes: #
-# See also: #
+# Accepted keywords are:
+#
+#   * Resolves
+#   * Closes
+#   * See also
+#
