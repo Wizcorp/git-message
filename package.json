@@ -1,6 +1,6 @@
 {
   "name": "git-message",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Configure your local git repository to use a custom template",
   "main": "index.js",
   "bin": {

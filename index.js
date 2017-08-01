@@ -16,7 +16,7 @@ exports.setGitMessage = function (filepath, callback) {
 
   // Even on windows, the path should be set to
   // posix style file separation
-  filepath.replace(/\\/g, '/')
+  filepath = filepath.replace(/\\/g, '/')
 
   async.series([
     (callback) => fs.access(filepath, callback),
